@@ -89,5 +89,23 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- SCRIPTS -->
+    <script src={{ asset('assets/js/jquery.min.js') }}></script>
+    <script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/stickyfill.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.fancybox.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.easing.1.3.js') }}"></script>
+    
+    <script src="{{ asset('assets/js/jquery.waypoints.min.js') }}"></script>
+    <script src="{{ asset('assets/js/jquery.animateNumber.min.js') }}"></script>
+    <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('assets/js/quill.min.js') }}"></script>
+    
+    
+    <script src="{{ asset('assets/js/bootstrap-select.min.js') }}"></script>
+    
+    <script src="{{ asset('assets/js/custom.js') }}"></script>
 </body>
 </html>
