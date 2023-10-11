@@ -29,12 +29,14 @@ class DatabaseSeeder extends Seeder
             'experience' => '2 to 3 year(s)',
             'salary' => '$60k - $100k',
             'gender' => 'Any',
-            'application_deadline' => 'April 28, 2019',
+            'application_deadline' => 'April 28, 2024',
             'jobdescription' => 'SomethingSomethingSomething',
             'responsibilities' => 'SomethingSomethingSomething',
             'education_experience' => 'SomethingSomethingSomething',
             'otherbenifits' => 'SomethingSomethingSomething',
-            'image' => 'job_logo_1.jpg'
+            'image' => 'job_logo_1.jpg',
+            'created_at' => now()->format('Y-m-d H:i:s'),
+            'updated_at' => now()->format('Y-m-d H:i:s'),
         ]);
     }
 }

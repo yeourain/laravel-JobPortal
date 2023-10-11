@@ -27,7 +27,8 @@ return new class extends Migration
             $table->longText('education_experience');
             $table->longText('otherbenifits');
             $table->string('image');
-            $table->timestamps();
+            $table->timestamp('created_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 
