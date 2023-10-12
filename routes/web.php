@@ -29,3 +29,4 @@ Route::post('/jobs/apply', [App\Http\Controllers\Jobs\JobsController::class, 'jo
 Route::get('/categories/single/{name}', [App\Http\Controllers\Categories\CategoriesController::class, 'singleCategory'])->name('categories.single');
 
 Route::get('/users/profile', [App\Http\Controllers\Users\UsersController::class, 'profile'])->name('profile');
+Route::get('/users/applications', [App\Http\Controllers\Users\UsersController::class, 'applications'])->name('applications');
