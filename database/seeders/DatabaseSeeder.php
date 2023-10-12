@@ -22,6 +22,16 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
+        User::create([
+            'name' => 'TAEHYUN LEE',
+            'email' => 'leeth322@icloud.com',
+            'password' => 'hyunL6902',
+            'image' => 'user.png',
+            'cv' => 'a1-<s5167765>.pdf',
+            'job_title' => 'Front End',
+            'bio' => 'Griffith Uni',
+        ]);
+
         Job::create([
             'job_title' => 'Product Designer',
             'job_region' => 'Brisbane',
