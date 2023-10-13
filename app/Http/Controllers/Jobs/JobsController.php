@@ -8,6 +8,7 @@ use App\Models\Job\Job;
 use App\Models\Category\Category;
 use App\Models\Job\JobSaved;
 use App\Models\Job\Application;
+use App\Models\Job\Search;
 use Auth;
 
 class JobsController extends Controller
@@ -26,21 +27,26 @@ class JobsController extends Controller
             ->take(5)
             ->count();
 
-        //save job
-        $savedJob = JobSaved::where('job_id', $id)
-            ->where('user_id', Auth::user()->id)
-            ->count();
-
-        //verfining if user applied to job
-        $appliedJob = Application::where('user_id', Auth::user()->id)
-            ->where('job_id', $id)
-            ->count();
-        
         //categories
         $categories = Category::all();
 
+        if(auth()->user()) {
+            //save job
+            $savedJob = JobSaved::where('job_id', $id)
+            ->where('user_id', Auth::user()->id)
+            ->count();
 
-        return view('jobs.single', compact('job', 'relatedJobs', 'relatedJobsCount', 'savedJob', 'appliedJob', 'categories'));
+            //verfining if user applied to job
+            $appliedJob = Application::where('user_id', Auth::user()->id)
+            ->where('job_id', $id)
+            ->count();
+
+            return view('jobs.single', compact('job', 'relatedJobs', 'relatedJobsCount', 'savedJob', 'appliedJob', 'categories'));
+
+        } else {
+            return view('jobs.single', compact('job', 'relatedJobs', 'relatedJobsCount', 'categories'));
+        }
+        
     }
 
     public function saveJob(Request $request) {
@@ -85,6 +91,10 @@ class JobsController extends Controller
             "job_title" => "required",
             "job_region" => "required",
             "job_type" => "required",
+        ]);
+
+        Search::Create([
+            "keyword" => $request->job_title
         ]);
 
         $job_title = $request->get('job_title');
