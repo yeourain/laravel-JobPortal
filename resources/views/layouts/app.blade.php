@@ -62,6 +62,9 @@
                                         <a class="dropdown-item" href="{{ route('edit.details') }}">
                                             Update Details
                                         </a>
+                                        <a class="dropdown-item" href="{{ route('edit.cv') }}">
+                                            Update CV
+                                        </a>
                                         <a class="dropdown-item" href="{{ route('saved.jobs') }}">
                                             Saved Jobs
                                         </a>
