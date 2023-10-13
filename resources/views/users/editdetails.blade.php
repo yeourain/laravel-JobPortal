@@ -43,11 +43,17 @@
                     <label for="job-title">Name</label>
                     <input type="text" value="{{ $userDetails->name }}" name="name" class="form-control" id="job-title" placeholder="Write Name...">
                 </div>
+                @if($errors->has('name'))
+                    <p class="alert alert-success">{{ $errors->first('name') }}</p>
+                @endif
 
                 <div class="form-group">
                     <label for="job-title">Job Title</label>
                     <input type="text" value="{{ $userDetails->job_title }}" name="job_title" class="form-control" id="job-title" placeholder="Write Job Title...">
                 </div>
+                @if($errors->has('job-title'))
+                    <p class="alert alert-success">{{ $errors->first('job-title') }}</p>
+                @endif
 
                 <div class="row form-group">
                     <div class="col-md-12">
@@ -55,18 +61,31 @@
                         <textarea name="bio" id="" cols="30" rows="7" class="form-control" placeholder="Write Bio...">{{ $userDetails->bio }}</textarea>
                     </div>
                 </div>
+                @if($errors->has('bio'))
+                    <p class="alert alert-success">{{ $errors->first('bio') }}</p>
+                @endif
+
                 <div class="form-group">
                     <label for="job-title">Facebook</label>
                     <input type="text" value="{{ $userDetails->facebook }}" name="facebook" class="form-control" id="job-title" placeholder="Facebook">
                 </div>
+                @if($errors->has('facebook'))
+                    <p class="alert alert-success">{{ $errors->first('facebook') }}</p>
+                @endif
                 <div class="form-group">
                     <label for="job-title">Twitter</label>
                     <input type="text" value="{{ $userDetails->twitter }}" name="twitter" class="form-control" id="job-title" placeholder="Twitter">
                 </div>
+                @if($errors->has('twitter'))
+                    <p class="alert alert-success">{{ $errors->first('twitter') }}</p>
+                @endif
                 <div class="form-group">
                     <label for="job-title">Linkedin</label>
                     <input type="text" value="{{ $userDetails->linkedin }}" name="linkedin" class="form-control" id="job-title" placeholder="Linkedin">
                 </div>
+                @if($errors->has('linkedin'))
+                    <p class="alert alert-success">{{ $errors->first('linkedin') }}</p>
+                @endif
                 <div class="col-lg-4 ml-auto">
                     <div class="row">  
                         <div class="col-6">
