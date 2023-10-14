@@ -23,6 +23,12 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
 
+        // Admin::create([
+        //     'name' => 'Admin',
+        //     'email' => 'admin@example.com',
+        //     'password' => 'password',
+        // ]);
+
         User::create([
             'name' => 'TAEHYUN LEE',
             'email' => 'leeth322@icloud.com',
@@ -34,9 +40,9 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Admin::create([
-            'name' => 'Admin',
-            'email' => 'admin@gmail.com',
-            'password' => 'password',
+            // 'name' => 'Admin',
+            'email' => 'admin@example.com',
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'created_at' => now()->format('Y-m-d H:i:s'),
             'updated_at' => now()->format('Y-m-d H:i:s'),
         ]);

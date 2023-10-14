@@ -13,6 +13,7 @@ class AdminsController extends Controller
     }
 
     public function checkLogin(Request $request) {
+
         $remember_me = $request->has('remember_me') ? true : false;
 
         if (auth()->guard('admin')->attempt(['email' => $request->input("email"), 'password' => $request->input("password")], $remember_me)) {
@@ -20,6 +21,7 @@ class AdminsController extends Controller
             return redirect() -> route('admins.dashboard');
         }
         return redirect()->back()->with(['error' => 'error logging in']);
+        
     }
 
     public function index() {
