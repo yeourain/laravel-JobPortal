@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         Admin::create([
-            // 'name' => 'Admin',
+            'name' => 'Admin',
             'email' => 'admin@example.com',
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi',
             'created_at' => now()->format('Y-m-d H:i:s'),

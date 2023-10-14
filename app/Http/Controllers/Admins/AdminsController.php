@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Admins;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Admin;
+use App\Models\Job\Job;
+use App\Models\Job\Application;
+use App\Models\Category\Category;
+use Illuminate\Support\Facades\Hash;
 
 class AdminsController extends Controller
 {
@@ -25,7 +29,114 @@ class AdminsController extends Controller
     }
 
     public function index() {
-        return view("admins.index");
+
+        $jobs = Job::select()->count();
+        $categories = Category::select()->count();
+        $admins = Admin::select()->count();
+        $applications = Application::select()->count();
+
+        return view("admins.index", compact('jobs', 'categories', 'admins', 'applications'));
+
     }
+
+    public function admins() {
+
+        $admins = Admin::all();
+
+        return view("admins.all-admins", compact('admins'));
+
+    }
+
+    public function createAdmins() {
+
+        return view("admins.create-admins");
+
+    }
+
+    public function storeAdmins(Request $request) {
+
+        Request()->validate([
+            "name" => "required|max:40",
+            "email" => "required|max:40",
+            "password" => "required",
+        ]);
+
+        $createAdmins = Admin::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
+
+        if($createAdmins) {
+            return redirect('admin/all-admins/')->with('create', 'Admin created successfully');
+        }
+
+    }
+
+    public function displayCategories() {
+
+        $categories = Category::all();
+
+        return view("admins.display-categories", compact('categories'));
+        
+    }
+
+    public function createCategories() {
+
+        return view("admins.create-categories");
+        
+    }
+
+    public function storeCategories(Request $request) {
+
+        Request()->validate([
+            "name" => "required|max:40",
+        ]);
+
+        $createCategory = Category::create([
+            'name' => $request->name,
+        ]);
+
+        if($createCategory) {
+            return redirect('admin/display-categories')->with('create', 'Category created successfully');
+        }
+
+    }
+
+    public function editCategories($id) {
+
+        $category = Category::find($id);
+
+        return view("admins.edit-categories", compact('category'));
+        
+    }
+
+    public function updateCategories(Request $request, $id) {
+
+        Request()->validate([
+            "name" => "required|max:40",
+        ]);
+
+        $categoryUpdate = Category::find($id);
+        $categoryUpdate->update([
+            "name" => $request->name,
+        ]);
+
+        if($categoryUpdate) {
+            return redirect('/admin/display-categories/')->with('update', 'Category updated successfully');
+        }
+    }
+
+    public function deleteCategories($id) {
+
+        $deleteCategory = Category::find($id);
+        $deleteCategory->delete();
+
+        if($deleteCategory) {
+            return redirect('/admin/display-categories/')->with('delete', 'Category deleted successfully');
+        }
+        
+    }
+
 
 }
