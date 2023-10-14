@@ -14,6 +14,7 @@ class job extends Model
     protected $fillable = [
         'id',
         'job_title',
+        'job_region',
         'company',
         'job_type',
         'vacancy',
@@ -25,6 +26,7 @@ class job extends Model
         'responsibilities',
         'education_experience',
         'otherbenifits',
+        'category',
         'image',
     ];
     public $timestamps = true;

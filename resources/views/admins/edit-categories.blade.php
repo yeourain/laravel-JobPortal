@@ -14,7 +14,7 @@
                         <input type="text" value="{{ $category->name }}" name="name" id="form2Example1" class="form-control" placeholder="name" />                       
                     </div>    
                     @if($errors->has('name'))
-                        <p class="alert alert-success">{{ $errors->first('name') }}</p>
+                        <p class="alert alert-danger">{{ $errors->first('name') }}</p>
                     @endif
                     <!-- Submit button -->
                     <button type="submit" name="submit" class="btn btn-primary  mb-4 text-center">update</button>           

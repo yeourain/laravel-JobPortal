@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('cv')->nullable();
             $table->integer('job_id');
             $table->integer('user_id');
+            $table->string('email');
             $table->string('job_image');
             $table->string('job_title');
             $table->string('job_region');
