@@ -7,6 +7,7 @@ use Illuminate\Database\Seeder;
 use App\Models\Job\Job;
 use App\Models\Category\Category;
 use \App\Models\User;
+use App\Models\Admin\Admin;
 
 class DatabaseSeeder extends Seeder
 {
@@ -30,6 +31,14 @@ class DatabaseSeeder extends Seeder
             'cv' => 'a1-<s5167765>.pdf',
             'job_title' => 'Front End',
             'bio' => 'Griffith Uni',
+        ]);
+
+        Admin::create([
+            'name' => 'Admin',
+            'email' => 'admin@gmail.com',
+            'password' => 'password',
+            'created_at' => now()->format('Y-m-d H:i:s'),
+            'updated_at' => now()->format('Y-m-d H:i:s'),
         ]);
 
         Job::create([
